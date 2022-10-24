@@ -9,7 +9,9 @@ Uni > Universidad Franz Tamayo
 
 ## 🚀 Develops Types 
 
-Sql Server and C#
+- Sql Server  
+- C#
+- C++
 
 ```sh
 https://github.com/elvbraxail/
