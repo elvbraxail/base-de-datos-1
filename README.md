@@ -4,14 +4,20 @@
 ## Foro personal 🐱‍👤
 
 Estudiante > Elvin Braxail Cussi Aranibar 
-
 Uni > Universidad Franz Tamayo   
+
+## Hito 1
++ INTRODUCCION A  SQL SERVER 
+
+## Hito 2
+https://github.com/elvbraxail/base-de-datos-1/tree/main/Hito%202/Foro
+
+## Hito 3 
+https://github.com/elvbraxail/base-de-datos-1/tree/main/hito%203
 
 ## 🚀 Develops Types 
 
-- Sql Server  
-- C#
-- C++
+Sql Server and C#
 
 ```sh
 https://github.com/elvbraxail/
