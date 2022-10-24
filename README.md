@@ -4,6 +4,7 @@
 ## Foro personal 🐱‍👤
 
 Estudiante > Elvin Braxail Cussi Aranibar 
+
 Uni > Universidad Franz Tamayo   
 
 ## 🚀 Develops Types 
