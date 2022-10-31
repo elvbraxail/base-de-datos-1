@@ -1,0 +1,114 @@
+create database hito4_funciones;
+use hito4_funciones;
+
+
+--- manejo de funciones 
+-- una funcion de agreagacion siempre se ejecuta
+-- en la clausla selct
+-- ademas siempre retorna en un unico valor (una fila)
+-- es aplicado a un grupo de registros (a una columna de la tabla )
+
+-- avg utilizda para calcular el promedio de un campo
+
+-- count cuantas personas tienes registrados
+-- select count (*)
+-- from empleado 
+
+-- sum utilizado para sumar todos los valores de una columna 
+-- max utilizada para devolver el valor mas alto de un campo especificado 
+-- min utilizada para devolver el valor mas bajo de un campo especifico
+
+create table estudiantes 
+(
+id_est integer identity primary key not null,
+nombres varchar (20) not null,
+apellidos varchar (20)not null,
+edad integer not null ,
+fono integer not null,
+email varchar (100) not null ,
+direccion varchar (200) not null , 
+genero varchar (50)not null,
+licencia_conducir bit not null , 
+id_esc integer not null
+foreign key (id_est) references estudiantes (id_est)
+
+
+);
+drop table estudiantes
+
+
+create table escuela 
+(
+id_esc integer identity primary key ,
+nombre varchar (40),
+direccion varchar (30), 
+turno varchar (69),
+
+);
+
+
+
+
+
+drop table escuela
+alter table estudiantes add licencia_conducir bit;
+
+INSERT INTO escuela (nombres, apellidos, edad, fono, email, direccion, genero, licencia_conducir, , id_esc)
+  VALUES ('Miguel' ,'Gonzales Veliz', 20, 2832115, 'miguel@gmail.com', 'Av. 6 de Agosto', 'masculino', 1);
+
+ ,('Miguel' ,'Gonzales Veliz', 20, 2832115, 'miguel@gmail.com', 'Av. 6 de Agosto', 'masculino', 0);
+ ,('Sandra' ,'Mavir Uria', 25, 2832116, 'sandra@gmail.com', 'Av. 6 de Agosto', 'femenino');
+ ,('Joel' ,'Adubiri Mondar', 30, 2832117, 'joel@gmail.com', 'Av. 6 de Agosto', 'masculino');
+,('Andrea' ,'Arias Ballesteros', 21, 2832118, 'andrea@gmail.com', 'Av. 6 de Agosto', 'femenino');
+
+ ,('Santos' ,'Montes Valenzuela', 24, 2832119, 'santos@gmail.com', 'Av. 6 de Agosto', 'masculino');
+
+
+   
+   select *from estudiantes
+  select count (*)
+  from estudiantes as est ;
+
+
+  select count (est.id_est)
+  from estudiantes as est ;
+
+
+
+  select min (est.edad) as la_edad_mas_baja
+  from estudiantes as est 
+
+  select count (est.genero )
+  from estudiantes as est  
+  where est.genero = 'femenino' 
+
+
+  select count (est.licencia_conducir)
+  from estudiantes as est 
+  where est.licencia_conducir = 1
+
+
+  select max (est.edad)
+  from estudiantes as est 
+  where est.genero = 'masculino'
+
+  select count (id_est)
+  from estudiantes as est 
+  where est.apellidos like 'el' or est.genero = 'masculino'
+
+
+  select count (est.id_est)
+  from estudiantes as est 
+  where est.edad > 20 and est.edad < 30 and est.licencia_conducir = 1
+
+
+  SELECT count (est.id_est) 
+  FROM estudiantes as est
+WHERE est.licencia_conducir BETWEEN 21 AND 29;
+
+  SELECT count (est.id_est) 
+  FROM estudiantes as est
+WHERE est.licencia_conducir BETWEEN 19 AND 29;
+
+
+  select * from estudiantes
