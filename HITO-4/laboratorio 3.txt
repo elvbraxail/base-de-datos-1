@@ -1,0 +1,141 @@
+create database hito4_programacion
+use hito4_programacion
+
+
+ create function suma4numeros (@num1 integer , @num2 integer , @accion varchar (20))
+ returns integer  as 
+ Begin 
+   declare @result  integer 
+   if (@accion = 'suma')
+   set @result = @num1 + @num2;
+    if (@accion = 'resta')
+   set @result = @num1 - @num2;
+   return @result
+  
+ End ;
+
+ select dbo.suma4numeros (6,6,'suma') as suma
+ select dbo.suma4numeros (10,6, 'resta') as res 
+
+ create function suma_numeros (@num1 integer, @num2 integer , @action varchar (20))
+ returns integer as 
+ begin
+ declare @result  integer =0
+ if (@action = 'suma')
+ begin
+  set @result = @num1 + @num2 
+ end
+  if (@action = 'resta')
+ begin
+  set @result = @num1 - @num2 
+ end
+  if (@action = 'multiplicacion')
+ begin
+  set @result = @num1 * @num2 
+ end
+  if (@action = 'division')
+ begin
+  set @result = @num1 / @num2 
+ end
+ return @result;   
+ 
+  
+ end;
+
+  select dbo.suma_numeros (13,2,'suma') as suma
+  select dbo.suma_numeros (6,6,'resta') as resta
+  select dbo.suma_numeros (5,7,'multiplicacion') as multiplicacion
+  select dbo.suma_numeros (6,6,'division') as division
+
+
+	drop function suma_numeros
+
+
+use hito4
+select * 
+from estudiantes
+
+select count (*)
+from estudiantes as es 
+where es.edad > 18
+
+
+
+
+
+
+create function edad_mayores (@edad  INTEGER )
+
+returns integer as
+begin 
+declare @response integer = 0
+ select @response = count (est.id_est)
+ from estudiantes as est 
+ inner join est
+ where est.edad > @edad
+ return @response 
+end; 
+
+
+
+
+select count (est.id_esc) as edad
+from estudiantes as est
+inner join escuela as esc on est.id_est = esc.id_esc 
+where  est.edad > 20
+and est.genero = 'femenino'   
+and esc.nombre = 'Andres Bello'
+
+select *
+from estudiantes
+
+
+
+
+
+
+
+
+
+
+create function edad_mayores (@edad  INTEGER )
+returns integer as
+begin 
+declare @respuesta  integer = 0
+   select @respuesta = @edad count (est.id_esc) 
+   from estudiantes as est
+   inner join escuela as esc on est.id_est = esc.id_esc 
+   where  @respuesta = @edad count (est.id_est) 
+   and est.genero = 'femenino'  
+   and esc.nombre = 'Andres Bello'
+   return @respuesta
+
+end; 
+
+select max (es.id_est)
+from estudiantes as es 
+
+
+
+
+
+create function edad_mayores ()
+returns integer as
+begin 
+
+declare @respuesta  integer = 0
+
+   select @respuesta = max (es.id_est) 
+   from estudiantes as es 
+ 
+ return @respuesta 
+
+end;
+drop function edad_mayores
+
+
+
+
+select est.*
+from estudiantes as est 
+where est.id_est = dbo.edad_mayores () 
